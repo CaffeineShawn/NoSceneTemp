@@ -3,4 +3,77 @@
    uuid = "40E6C94E-4914-42FB-873A-34D6718834D0"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2082D654-1241-4DE7-A658-0F446696BF9F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NoSceneTemp/Login/TTInputField.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "label"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "2082D654-1241-4DE7-A658-0F446696BF9F - 252ed87468702f2d"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TTInputField label]"
+                  moduleName = "NoSceneTemp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shawyoung/Desktop/GitHub/NoSceneTemp/NoSceneTemp/Login/TTInputField.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "2082D654-1241-4DE7-A658-0F446696BF9F - e1af2979ce4882bb"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TTInputField setLabel:]"
+                  moduleName = "NoSceneTemp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shawyoung/Desktop/GitHub/NoSceneTemp/NoSceneTemp/Login/TTInputField.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "43">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            uuid = "ECE347D1-23FE-4171-AB94-1F90953E48CE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = "UIViewAlertForUnsatisfiableConstraints"
+            moduleName = "">
+            <Locations>
+               <Location
+                  uuid = "ECE347D1-23FE-4171-AB94-1F90953E48CE - ba3ad5676a792f38"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UIViewAlertForUnsatisfiableConstraints"
+                  moduleName = "UIKitCore"
+                  usesParentBreakpointCondition = "Yes"
+                  offsetFromSymbolStart = "0">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -10,7 +10,7 @@
 #import "UIView+Border.h"
 NSUInteger const kPaddings = 10;
 @interface TTInputField ()
-@property (nonatomic, strong) UITextField *textField;
+
 @property (nonatomic, strong) UILabel *label;
 @property (nonatomic, strong) UIView *bottomMargin;
 @end

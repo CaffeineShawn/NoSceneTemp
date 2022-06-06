@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TTInputField : UIView
-@property (nonatomic, copy) NSString *inputText;
+@property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, copy) NSString *labelText;
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, copy) NSString *placeholder;

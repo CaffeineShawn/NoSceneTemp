@@ -24,14 +24,39 @@
     if (self) {
         _accountInputField = [[TTInputField alloc]initWithLabelText:@"账号" placeholder:@"请输入账号"];
         _emailInputField = [[TTInputField alloc]initWithLabelText:@"邮箱" placeholder:@"请输入邮箱"];
+        _emailInputField.textField.keyboardType = UIKeyboardTypeEmailAddress;
         _passwordInputField = [[TTInputField alloc]initWithLabelText:@"密码" placeholder:@"请输入密码"];
+        [_passwordInputField.textField  setSecureTextEntry:YES];
         _containerStack = [[UIStackView alloc]initWithArrangedSubviews:@[_accountInputField, _emailInputField, _passwordInputField]];
         _containerStack.axis = UILayoutConstraintAxisVertical;
-        _containerStack.spacing = 10;
-        _containerStack.distribution = UIStackViewDistributionFillEqually;
+//        _containerStack.spacing = 10;
+        _containerStack.distribution = UIStackViewDistributionEqualSpacing;
+        [self initButtons];
+        [_containerStack addArrangedSubview:_loginButton];
+        [_containerStack addArrangedSubview:_registerButton];
         [self addSubview:_containerStack];
     }
     return self;
+}
+
+- (void)initButtons {
+    _loginButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    _loginButton.backgroundColor = UIColor.systemBlueColor;
+    _loginButton.tintColor = UIColor.whiteColor;
+    [_loginButton.titleLabel setFont:[UIFont systemFontOfSize:18]];
+    [_loginButton setContentEdgeInsets:UIEdgeInsetsMake(12, 0, 12, 0)];
+    [_loginButton.layer setCornerRadius:8];
+    
+    _registerButton = [UIButton buttonWithType:UIButtonTypeSystem];
+
+    [_registerButton.titleLabel setFont:[UIFont systemFontOfSize:18]];
+    [_registerButton.layer setCornerRadius:8];
+    [_registerButton setContentEdgeInsets:UIEdgeInsetsMake(12, 0, 12, 0)];
+    
+    [_loginButton sizeToFit];
+    [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
+    [_registerButton sizeToFit];
+    [_registerButton setTitle:@"注册" forState:UIControlStateNormal];
 }
 
 - (void)layoutSubviews {

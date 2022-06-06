@@ -40,6 +40,7 @@
     [_loginView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(self.view);
         make.center.mas_equalTo(self.view);
+        make.height.mas_equalTo(300);
     }];
     
 }
