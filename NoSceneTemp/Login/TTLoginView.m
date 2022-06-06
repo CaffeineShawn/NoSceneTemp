@@ -28,6 +28,7 @@
         _containerStack = [[UIStackView alloc]initWithArrangedSubviews:@[_accountInputField, _emailInputField, _passwordInputField]];
         _containerStack.axis = UILayoutConstraintAxisVertical;
         _containerStack.spacing = 10;
+        _containerStack.distribution = UIStackViewDistributionFillEqually;
         [self addSubview:_containerStack];
     }
     return self;
@@ -35,11 +36,12 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-//    [self mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.height.mas_equalTo(170);
-//    }];
     [_containerStack mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(self.bounds.size);
+        make.width.mas_equalTo(self);
+        make.center.mas_equalTo(self);
+    }];
+    [self mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(_containerStack.mas_height);
     }];
 }
 @end

@@ -12,6 +12,7 @@ NSUInteger const kPaddings = 10;
 @interface TTInputField ()
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) UIView *bottomMargin;
 @end
 @implementation TTInputField
 
@@ -30,23 +31,27 @@ NSUInteger const kPaddings = 10;
         _textField = UITextField.new;
         _label = UILabel.new;
         _label.textAlignment = NSTextAlignmentCenter;
+        
+        
         UIStackView *containerStack = [[UIStackView alloc]initWithArrangedSubviews:@[_label, _textField]];
+        _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _textField.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 20, 25)];
+        [_textField.leftView addLeftBorderWithColor:UIColor.blackColor andWidth:0.5];
+        _textField.leftViewMode = UITextFieldViewModeAlways;
+        _textField.rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 20, 25)];
+        _textField.rightViewMode = UITextFieldViewModeUnlessEditing;
+        [_label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(70);
+            make.height.mas_equalTo(50);
+        }];
+        containerStack.axis = UILayoutConstraintAxisHorizontal;
+        containerStack.alignment = UIStackViewAlignmentCenter;
         _containerView = containerStack;
         _containerView.layer.masksToBounds = YES;
         [_containerView.layer setCornerRadius:10];
         [_containerView.layer setBorderWidth:0.5];
         [_containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.height.mas_equalTo(50);
         }];
-        _textField.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 20, 25)];
-        [_textField.leftView addLeftBorderWithColor:UIColor.blackColor andWidth:0.5];
-        _textField.leftViewMode = UITextFieldViewModeAlways;
-        _textField.rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 20, 25)];
-        _textField.rightViewMode = UITextFieldViewModeAlways;
-        [_label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_equalTo(70);
-        }];
-        containerStack.axis = UILayoutConstraintAxisHorizontal;
         [self addSubview:_containerView];
     }
     return self;
@@ -63,9 +68,8 @@ NSUInteger const kPaddings = 10;
     [super layoutSubviews];
     [_containerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(self);
-    }];
-    [self mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottomMargin.mas_equalTo(10);
+        make.centerX.mas_equalTo(self);
+        make.centerY.mas_equalTo(self);
     }];
 }
 

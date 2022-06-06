@@ -7,8 +7,8 @@
 
 #import "AppDelegate.h"
 #import "Login/LoginViewController.h"
-#import "Login/InputFieldTestViewController.h"
-
+//#import "Login/InputFieldTestViewController.h"
+#import "Login/TestViewController.h"
 @interface AppDelegate ()
 @end
 
@@ -29,7 +29,7 @@
     secondVC.tabBarItem.title = @"User";
     secondVC.tabBarItem.image = [UIImage systemImageNamed:@"person.circle"];
     secondVC.navigationBarHidden = YES;
-    secondVC.viewControllers = @[InputFieldTestViewController.new];
+    secondVC.viewControllers = @[TestViewController.new];
     [_window makeKeyAndVisible];
     tabVC.selectedIndex = 1;
     return YES;
