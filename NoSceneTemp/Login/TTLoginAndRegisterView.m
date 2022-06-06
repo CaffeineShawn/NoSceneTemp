@@ -2,16 +2,21 @@
 //  TTLoginView.m
 //  NoSceneTemp
 //
-//  Created by Shaw Young on 2022/6/6.
+//  Created by 肖扬 on 2022/6/6.
 //
 
-#import "TTLoginView.h"
+#import "TTLoginAndRegisterView.h"
 #import "TTInputField.h"
 #import "Masonry.h"
 
-
-
-@implementation TTLoginView
+@implementation TTLoginAndRegisterView
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
 - (instancetype)init
 {
     self = [super init];
@@ -49,12 +54,16 @@
     _usernameInputField = [[TTInputField alloc]initWithLabelText:@"账号" placeholder:@"请输入账号"];
     _usernameInputField.textField.textContentType = UITextContentTypeUsername;
     _usernameInputField.textField.autocorrectionType = UITextAutocorrectionTypeNo;
+    _emailInputField = [[TTInputField alloc]initWithLabelText:@"邮箱" placeholder:@"请输入邮箱"];
+    _emailInputField.textField.keyboardType = UIKeyboardTypeEmailAddress;
+    _emailInputField.textField.autocorrectionType = UITextAutocorrectionTypeNo;
+    _emailInputField.textField.textContentType = UITextContentTypeEmailAddress;
     _passwordInputField = [[TTInputField alloc]initPasswordInputFieldWithLabelText:@"密码" placeholder:@"请输入密码"];
     [_passwordInputField.textField  setSecureTextEntry:YES];
 }
 
 - (void)setupContainer {
-    _containerStack = [[UIStackView alloc]initWithArrangedSubviews:@[_usernameInputField, _passwordInputField]];
+    _containerStack = [[UIStackView alloc]initWithArrangedSubviews:@[_usernameInputField, _emailInputField, _passwordInputField]];
     _containerStack.axis = UILayoutConstraintAxisVertical;
     _containerStack.distribution = UIStackViewDistributionEqualSpacing;
     [self initButtons];

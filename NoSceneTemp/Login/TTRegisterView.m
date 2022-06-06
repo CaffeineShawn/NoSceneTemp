@@ -1,19 +1,25 @@
 //
-//  TTLoginView.m
+//  TTRegisterView.m
 //  NoSceneTemp
 //
 //  Created by Shaw Young on 2022/6/6.
 //
 
-#import "TTLoginView.h"
+#import "TTRegisterView.h"
 #import "TTInputField.h"
 #import "Masonry.h"
+@interface TTRegisterView ()
+@property (nonatomic, strong) UILabel *titleLabel;
+@end
 
 
+@implementation TTRegisterView
 
-@implementation TTLoginView
 - (instancetype)init
 {
+    self.titleLabel = UILabel.new;
+    _titleLabel.text = @"注册";
+    [_titleLabel setFont:[UIFont systemFontOfSize:24 weight:UIFontWeightBold]];
     self = [super init];
     if (self) {
         [self setupInputFields];
@@ -26,21 +32,13 @@
 }
 
 - (void)initButtons {
-    _loginButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    _loginButton.backgroundColor = UIColor.systemBlueColor;
-    _loginButton.tintColor = UIColor.whiteColor;
-    [_loginButton.titleLabel setFont:[UIFont systemFontOfSize:18]];
-    [_loginButton setContentEdgeInsets:UIEdgeInsetsMake(12, 0, 12, 0)];
-    [_loginButton.layer setCornerRadius:8];
-    
     _registerButton = [UIButton buttonWithType:UIButtonTypeSystem];
-
+    _registerButton.backgroundColor = UIColor.systemBlueColor;
+    _registerButton.tintColor = UIColor.whiteColor;
     [_registerButton.titleLabel setFont:[UIFont systemFontOfSize:18]];
-    [_registerButton.layer setCornerRadius:8];
     [_registerButton setContentEdgeInsets:UIEdgeInsetsMake(12, 0, 12, 0)];
-    
-    [_loginButton sizeToFit];
-    [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
+    [_registerButton.layer setCornerRadius:8];
+
     [_registerButton sizeToFit];
     [_registerButton setTitle:@"注册" forState:UIControlStateNormal];
 }
@@ -49,16 +47,19 @@
     _usernameInputField = [[TTInputField alloc]initWithLabelText:@"账号" placeholder:@"请输入账号"];
     _usernameInputField.textField.textContentType = UITextContentTypeUsername;
     _usernameInputField.textField.autocorrectionType = UITextAutocorrectionTypeNo;
+    _emailInputField = [[TTInputField alloc]initWithLabelText:@"邮箱" placeholder:@"请输入邮箱"];
+    _emailInputField.textField.keyboardType = UIKeyboardTypeEmailAddress;
+    _emailInputField.textField.autocorrectionType = UITextAutocorrectionTypeNo;
+    _emailInputField.textField.textContentType = UITextContentTypeEmailAddress;
     _passwordInputField = [[TTInputField alloc]initPasswordInputFieldWithLabelText:@"密码" placeholder:@"请输入密码"];
     [_passwordInputField.textField  setSecureTextEntry:YES];
 }
 
 - (void)setupContainer {
-    _containerStack = [[UIStackView alloc]initWithArrangedSubviews:@[_usernameInputField, _passwordInputField]];
+    _containerStack = [[UIStackView alloc]initWithArrangedSubviews:@[_usernameInputField, _emailInputField, _passwordInputField]];
     _containerStack.axis = UILayoutConstraintAxisVertical;
     _containerStack.distribution = UIStackViewDistributionEqualSpacing;
     [self initButtons];
-    [_containerStack addArrangedSubview:_loginButton];
     [_containerStack addArrangedSubview:_registerButton];
 }
 

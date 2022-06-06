@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TestViewController : ViewController
+@interface TTRegisterViewController : ViewController
 
 @end
 

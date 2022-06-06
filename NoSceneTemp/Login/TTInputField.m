@@ -8,7 +8,7 @@
 #import "TTInputField.h"
 #import "Masonry.h"
 #import "UIView+Border.h"
-NSUInteger const kPaddings = 10;
+
 @interface TTInputField ()
 
 @property (nonatomic, strong) UILabel *label;
