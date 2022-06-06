@@ -69,7 +69,6 @@
     }];
     
     _registerButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    _registerButton.backgroundColor = UIColor.systemMintColor;
     [_registerButton.titleLabel setFont:[UIFont systemFontOfSize:18]];
     [_registerButton.layer setCornerRadius:8];
     [_registerButton mas_makeConstraints:^(MASConstraintMaker *make) {

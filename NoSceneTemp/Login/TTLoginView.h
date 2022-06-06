@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TTLoginView : UIView
 @property (nonatomic, strong) UIStackView *containerStack;
-@property (nonatomic, strong) TTInputField *accountInputField;
+@property (nonatomic, strong) TTInputField *usernameInputField;
 @property (nonatomic, strong) TTInputField *emailInputField;
 @property (nonatomic, strong) TTInputField *passwordInputField;
 @property (nonatomic, strong) UIButton *loginButton;

@@ -10,7 +10,6 @@
 #import "Masonry.h"
 
 @implementation TTLoginView
-
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -22,19 +21,11 @@
 {
     self = [super init];
     if (self) {
-        _accountInputField = [[TTInputField alloc]initWithLabelText:@"账号" placeholder:@"请输入账号"];
-        _emailInputField = [[TTInputField alloc]initWithLabelText:@"邮箱" placeholder:@"请输入邮箱"];
-        _emailInputField.textField.keyboardType = UIKeyboardTypeEmailAddress;
-        _passwordInputField = [[TTInputField alloc]initWithLabelText:@"密码" placeholder:@"请输入密码"];
-        [_passwordInputField.textField  setSecureTextEntry:YES];
-        _containerStack = [[UIStackView alloc]initWithArrangedSubviews:@[_accountInputField, _emailInputField, _passwordInputField]];
-        _containerStack.axis = UILayoutConstraintAxisVertical;
-//        _containerStack.spacing = 10;
-        _containerStack.distribution = UIStackViewDistributionEqualSpacing;
-        [self initButtons];
-        [_containerStack addArrangedSubview:_loginButton];
-        [_containerStack addArrangedSubview:_registerButton];
+        [self setupInputFields];
+        [self setupContainer];
         [self addSubview:_containerStack];
+        UIEdgeInsets paddings = UIEdgeInsetsMake(20, 20, 20, 20);
+        [_containerStack setLayoutMargins:paddings];
     }
     return self;
 }
@@ -54,15 +45,37 @@
     [_registerButton setContentEdgeInsets:UIEdgeInsetsMake(12, 0, 12, 0)];
     
     [_loginButton sizeToFit];
-    [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
+    [_loginButton setTitle:@"注册" forState:UIControlStateNormal];
     [_registerButton sizeToFit];
-    [_registerButton setTitle:@"注册" forState:UIControlStateNormal];
+    [_registerButton setTitle:@"登录" forState:UIControlStateNormal];
+}
+
+- (void)setupInputFields {
+    _usernameInputField = [[TTInputField alloc]initWithLabelText:@"账号" placeholder:@"请输入账号"];
+    _usernameInputField.textField.textContentType = UITextContentTypeUsername;
+    _usernameInputField.textField.autocorrectionType = UITextAutocorrectionTypeNo;
+    _emailInputField = [[TTInputField alloc]initWithLabelText:@"邮箱" placeholder:@"请输入邮箱"];
+    _emailInputField.textField.keyboardType = UIKeyboardTypeEmailAddress;
+    _emailInputField.textField.autocorrectionType = UITextAutocorrectionTypeNo;
+    _emailInputField.textField.textContentType = UITextContentTypeEmailAddress;
+    _passwordInputField = [[TTInputField alloc]initPasswordInputFieldWithLabelText:@"密码" placeholder:@"请输入密码"];
+    [_passwordInputField.textField  setSecureTextEntry:YES];
+//    _emailInputField.textField.textContentType = UITextContentTypePassword;
+}
+
+- (void)setupContainer {
+    _containerStack = [[UIStackView alloc]initWithArrangedSubviews:@[_usernameInputField, _emailInputField, _passwordInputField]];
+    _containerStack.axis = UILayoutConstraintAxisVertical;
+    _containerStack.distribution = UIStackViewDistributionEqualSpacing;
+    [self initButtons];
+    [_containerStack addArrangedSubview:_loginButton];
+    [_containerStack addArrangedSubview:_registerButton];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
     [_containerStack mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(self);
+        make.width.mas_equalTo(self).offset(-40);
         make.center.mas_equalTo(self);
     }];
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
