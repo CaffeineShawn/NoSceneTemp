@@ -25,6 +25,8 @@
 		0FDCF036284D043A007639DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FDCF035284D043A007639DB /* Assets.xcassets */; };
 		0FDCF039284D043A007639DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDCF037284D043A007639DB /* LaunchScreen.storyboard */; };
 		0FDCF03C284D043A007639DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDCF03B284D043A007639DB /* main.m */; };
+		0FE3B491284FA36F00E14D38 /* TTPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3B490284FA36F00E14D38 /* TTPagerViewController.m */; };
+		0FE3B494284FA3AB00E14D38 /* TTPagerContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3B493284FA3AB00E14D38 /* TTPagerContainerView.m */; };
 		5EE7CA05D3F57B87CD97D3A9 /* Pods_NoSceneTemp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4356EE3231694B4606C52B4 /* Pods_NoSceneTemp.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,10 @@
 		0FDCF038284D043A007639DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FDCF03A284D043A007639DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FDCF03B284D043A007639DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0FE3B48F284FA36F00E14D38 /* TTPagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTPagerViewController.h; sourceTree = "<group>"; };
+		0FE3B490284FA36F00E14D38 /* TTPagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTPagerViewController.m; sourceTree = "<group>"; };
+		0FE3B492284FA3AB00E14D38 /* TTPagerContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTPagerContainerView.h; sourceTree = "<group>"; };
+		0FE3B493284FA3AB00E14D38 /* TTPagerContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTPagerContainerView.m; sourceTree = "<group>"; };
 		966A10369F79DC25CF36ED93 /* Pods-NoSceneTemp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoSceneTemp.debug.xcconfig"; path = "Target Support Files/Pods-NoSceneTemp/Pods-NoSceneTemp.debug.xcconfig"; sourceTree = "<group>"; };
 		B4356EE3231694B4606C52B4 /* Pods_NoSceneTemp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoSceneTemp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE8A3335F4CA6D3B87D7AC1 /* Pods-NoSceneTemp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoSceneTemp.release.xcconfig"; path = "Target Support Files/Pods-NoSceneTemp/Pods-NoSceneTemp.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 		0FDCF028284D0439007639DB /* NoSceneTemp */ = {
 			isa = PBXGroup;
 			children = (
+				0FE3B48E284FA35600E14D38 /* PagerView */,
 				0F779B73284D07E500076316 /* Login */,
 				0FDCF029284D0439007639DB /* AppDelegate.h */,
 				0FDCF02A284D0439007639DB /* AppDelegate.m */,
@@ -144,6 +151,17 @@
 				0FDCF03B284D043A007639DB /* main.m */,
 			);
 			path = NoSceneTemp;
+			sourceTree = "<group>";
+		};
+		0FE3B48E284FA35600E14D38 /* PagerView */ = {
+			isa = PBXGroup;
+			children = (
+				0FE3B48F284FA36F00E14D38 /* TTPagerViewController.h */,
+				0FE3B490284FA36F00E14D38 /* TTPagerViewController.m */,
+				0FE3B492284FA3AB00E14D38 /* TTPagerContainerView.h */,
+				0FE3B493284FA3AB00E14D38 /* TTPagerContainerView.m */,
+			);
+			path = PagerView;
 			sourceTree = "<group>";
 		};
 		85BDC553F866933717285B63 /* Frameworks */ = {
@@ -285,6 +303,8 @@
 				0F938884284DA181005E49AA /* InputFieldTestViewController.m in Sources */,
 				0F3F7A55284E4D3100193679 /* TTLoginViewController.m in Sources */,
 				0F4BB51E284D26E6006FCC37 /* TTOldLoginView.m in Sources */,
+				0FE3B491284FA36F00E14D38 /* TTPagerViewController.m in Sources */,
+				0FE3B494284FA3AB00E14D38 /* TTPagerContainerView.m in Sources */,
 				0F93887B284D8850005E49AA /* TTInputField.m in Sources */,
 				0FDCF031284D0439007639DB /* ViewController.m in Sources */,
 				0F93887E284D95E7005E49AA /* UIView+Border.m in Sources */,

@@ -10,6 +10,7 @@
 //#import "Login/InputFieldTestViewController.h"
 #import "Login/TTRegisterViewController.h"
 #import "Login/TTLoginViewController.h"
+#import "PagerView/TTPagerViewController.h"
 @interface AppDelegate ()
 @end
 
@@ -21,7 +22,7 @@
     UITabBarController *tabVC = UITabBarController.new;
     _window = UIWindow.new;
     _window.rootViewController = tabVC;
-    UIViewController *firstVC = UIViewController.new;
+    UIViewController *firstVC = TTPagerViewController.new;
     UINavigationController *secondVC = UINavigationController.new;
     tabVC.viewControllers = @[firstVC, secondVC];
     firstVC.tabBarItem.title = @"Videos";
