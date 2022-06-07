@@ -8,7 +8,10 @@
 #import "TTRegisterView.h"
 #import "TTInputField.h"
 #import "Masonry.h"
-@interface TTRegisterView ()
+//NSInteger const kRegisterViewUsernameField = 1001;
+//NSInteger const kRegisterViewEmailField = 1002;
+//NSInteger const kRegisterViewPasswordField = 1003;
+@interface TTRegisterView () <UITextFieldDelegate>
 @property (nonatomic, strong) UILabel *titleLabel;
 @end
 

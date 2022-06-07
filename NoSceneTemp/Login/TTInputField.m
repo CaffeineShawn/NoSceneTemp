@@ -114,6 +114,30 @@
     }];
 }
 
+#pragma mark - Override Responder Methods
+
+- (BOOL)becomeFirstResponder {
+    return [_textField becomeFirstResponder];
+}
+
+- (BOOL)resignFirstResponder {
+    return [_textField resignFirstResponder];
+}
+
+- (BOOL)canBecomeFocused {
+    return [_textField canBecomeFocused];
+}
+
+- (BOOL)canBecomeFirstResponder {
+    return [_textField canBecomeFirstResponder];
+}
+
+- (BOOL)canResignFirstResponder {
+    return [_textField canResignFirstResponder];
+}
+
+#pragma mark - Toggle Password Visibility
+
 - (void)toggleVisibility {
     [self.textField setSecureTextEntry:!self.textField.secureTextEntry];
 }

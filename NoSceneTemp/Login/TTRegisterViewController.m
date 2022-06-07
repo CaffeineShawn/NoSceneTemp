@@ -36,9 +36,9 @@ NSString * const kRegisterViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]
     _registerView.usernameInputField.textField.delegate = self;
     _registerView.emailInputField.textField.delegate = self;
     _registerView.passwordInputField.textField.delegate = self;
-    _registerView.usernameInputField.tag = kRegisterViewUsernameFieldTag;
-    _registerView.emailInputField.tag = kRegisterViewEmailFieldTag;
-    _registerView.passwordInputField.tag = kRegisterViewPasswordFieldTag;
+    _registerView.usernameInputField.textField.tag = kRegisterViewUsernameFieldTag;
+    _registerView.emailInputField.textField.tag = kRegisterViewEmailFieldTag;
+    _registerView.passwordInputField.textField.tag = kRegisterViewPasswordFieldTag;
 
     [_registerView.registerButton addTarget:self action:@selector(isInputLegal) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController setNavigationBarHidden:false];
@@ -55,23 +55,25 @@ NSString * const kRegisterViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]
 }
 
 #pragma mark - TextField Delegate
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     switch (textField.tag) {
         case kRegisterViewUsernameFieldTag:
-            if (textField.text == nil) {
-                
-            }
+            [textField resignFirstResponder];
+            [_loginView.emailInputField becomeFirstResponder];
             break;
+            
         case kRegisterViewEmailFieldTag:
-            if (textField.text == nil) {
-                
-            }
+            [textField resignFirstResponder];
+            [_loginView.passwordInputField becomeFirstResponder];
             break;
+            
         case kRegisterViewPasswordFieldTag:
-            if (textField.text == nil) {
-                
-            }
+            [textField resignFirstResponder];
+            NSLog(@"登录");
             break;
+            
+        default:
+            NSLog(@"%@", @(textField.tag));
     }
     return YES;
 }
