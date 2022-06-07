@@ -50,26 +50,27 @@ NSString * const kLoginViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{
         make.height.mas_equalTo(270);
     }];
     
+    
 }
 
 #pragma mark - TextField Delegate
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     switch (textField.tag) {
         case kLoginViewUsernameFieldTag:
-            if (textField.text == nil) {
-                
+            [textField resignFirstResponder];
+            if ([_loginView.passwordInputField canBecomeFirstResponder]) {
+                [_loginView.passwordInputField becomeFirstResponder];
             }
             break;
-        case kLoginViewEmailFieldTag:
-            if (textField.text == nil) {
-                
-            }
-            break;
+            
+            
         case kLoginViewPasswordFieldTag:
-            if (textField.text == nil) {
-                
-            }
+            [textField resignFirstResponder];
+            NSLog(@"登录");
             break;
+            
+        default:
+            NSLog(@"Unknown Tag: %@", @(textField.tag));
     }
     return YES;
 }
@@ -100,17 +101,14 @@ NSString * const kLoginViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{
 
 - (BOOL)isInputLegal {
     BOOL isUsernameEmpty = [_loginView.usernameInputField.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length == 0;
-//    BOOL isEmailEmpty = _loginView.emailInputField.textField.text.length == 0;
     BOOL isPasswordEmpty = _loginView.passwordInputField.textField.text.length == 0 ;
     BOOL isUsernameValid = [self checkUsername:_loginView.usernameInputField.textField.text];
-//    BOOL isEmailValid = [self checkEmail:_loginView.emailInputField.textField.text];
     BOOL isPasswordValid = _loginView.passwordInputField.textField.text.length < kLoginViewValidPasswordLength && [self checkPassword:_loginView.passwordInputField.textField.text];
     
     BOOL isValid = !isUsernameEmpty && !isPasswordEmpty && isUsernameValid && isPasswordValid;
     if (isValid) {
         return YES;
     } else {
-//        [self resignAllFieldResponders];
         NSString *errorMessage;
         if (isUsernameEmpty) {
             errorMessage = @"输入的账号不能为空";
@@ -122,30 +120,12 @@ NSString * const kLoginViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{
             errorMessage = @"输入的密码应该包含大小写和数字, 且长度在8到30个字符以内";
         }
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"输入错误" message:errorMessage preferredStyle:UIAlertControllerStyleAlert];
-//        __weak typeof(self) weakSelf = self;
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:action];
         [self presentViewController:alertController animated:YES completion:nil];
         return NO;
     }
 }
-
-- (void)resignAllFieldRespondersWithNextResponder:(UITextField *)nextResponder {
-    if (_loginView.usernameInputField.isFirstResponder) {
-        NSLog(@"username, %@", @(_loginView.usernameInputField.resignFirstResponder));
-        [_loginView.usernameInputField resignFirstResponder];
-    }
-//    if (_loginView.emailInputField.isFirstResponder) {
-//        NSLog(@"email, %@", @(_loginView.usernameInputField.resignFirstResponder));
-//        [_loginView.emailInputField resignFirstResponder];
-//    }
-    if (_loginView.passwordInputField.isFirstResponder) {
-        NSLog(@"password, %@", @(_loginView.usernameInputField.resignFirstResponder));
-        [_loginView.passwordInputField resignFirstResponder];
-    }
-}
-
-
 
 #pragma mark - Navigation
 

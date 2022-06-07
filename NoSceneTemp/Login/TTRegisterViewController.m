@@ -36,9 +36,9 @@ NSString * const kRegisterViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]
     _registerView.usernameInputField.textField.delegate = self;
     _registerView.emailInputField.textField.delegate = self;
     _registerView.passwordInputField.textField.delegate = self;
-    _registerView.usernameInputField.textField.tag = kRegisterViewUsernameFieldTag;
-    _registerView.emailInputField.textField.tag = kRegisterViewEmailFieldTag;
-    _registerView.passwordInputField.textField.tag = kRegisterViewPasswordFieldTag;
+    _registerView.usernameInputField.tag = kRegisterViewUsernameFieldTag;
+    _registerView.emailInputField.tag = kRegisterViewEmailFieldTag;
+    _registerView.passwordInputField.tag = kRegisterViewPasswordFieldTag;
 
     [_registerView.registerButton addTarget:self action:@selector(isInputLegal) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController setNavigationBarHidden:false];
@@ -59,12 +59,16 @@ NSString * const kRegisterViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]
     switch (textField.tag) {
         case kRegisterViewUsernameFieldTag:
             [textField resignFirstResponder];
-            [_loginView.emailInputField becomeFirstResponder];
+            if ([_registerView.emailInputField canBecomeFirstResponder]) {
+                [_registerView.emailInputField becomeFirstResponder];
+            }
             break;
             
         case kRegisterViewEmailFieldTag:
             [textField resignFirstResponder];
-            [_loginView.passwordInputField becomeFirstResponder];
+            if ([_registerView.passwordInputField canBecomeFirstResponder]) {
+                [_registerView.passwordInputField becomeFirstResponder];
+            }
             break;
             
         case kRegisterViewPasswordFieldTag:

@@ -136,6 +136,10 @@
     return [_textField canResignFirstResponder];
 }
 
+- (void)setTag:(NSInteger)tag {
+    return [_textField setTag:tag];
+}
+
 #pragma mark - Toggle Password Visibility
 
 - (void)toggleVisibility {
