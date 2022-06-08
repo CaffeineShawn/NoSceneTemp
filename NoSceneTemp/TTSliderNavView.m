@@ -41,12 +41,13 @@
         [_buttonC setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
         [_buttonC setTitleColor:UIColor.redColor forState:UIControlStateSelected];
         _sliderLabel = UILabel.new;
-        _sliderLabel.backgroundColor = UIColor.systemBlueColor;
+        _sliderLabel.backgroundColor = UIColor.systemRedColor;
         [self addSubview:_container];
         [_container addSubview:_buttonA];
         [_container addSubview:_buttonB];
         [_container addSubview:_buttonC];
-        [_sliderLabel.layer setCornerRadius:4];
+        [_sliderLabel.layer setCornerRadius:2];
+        [_sliderLabel setClipsToBounds:YES];
         [self.container addSubview:_sliderLabel];
         _container.showsHorizontalScrollIndicator = NO;
         _container.automaticallyAdjustsScrollIndicatorInsets = NO;
