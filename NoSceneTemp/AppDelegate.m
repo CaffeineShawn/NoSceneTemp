@@ -33,7 +33,7 @@
     secondVC.navigationBarHidden = YES;
     secondVC.viewControllers = @[TTLoginViewController.new];
     [_window makeKeyAndVisible];
-    tabVC.selectedIndex = 1;
+//    tabVC.selectedIndex = 1;
     return YES;
 }
 

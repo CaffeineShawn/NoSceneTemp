@@ -19,6 +19,8 @@
 		0F93887E284D95E7005E49AA /* UIView+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93887D284D95E7005E49AA /* UIView+Border.m */; };
 		0F938881284D9764005E49AA /* TTLoginAndRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F938880284D9764005E49AA /* TTLoginAndRegisterView.m */; };
 		0F938884284DA181005E49AA /* InputFieldTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F938883284DA181005E49AA /* InputFieldTestViewController.m */; };
+		0FC4F8E7285036470062C7A3 /* TTSegmentedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4F8E6285036470062C7A3 /* TTSegmentedView.m */; };
+		0FC4F8EA28503E660062C7A3 /* TTSegmentedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4F8E928503E660062C7A3 /* TTSegmentedCell.m */; };
 		0FDCF02B284D0439007639DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDCF02A284D0439007639DB /* AppDelegate.m */; };
 		0FDCF031284D0439007639DB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDCF030284D0439007639DB /* ViewController.m */; };
 		0FDCF034284D0439007639DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDCF032284D0439007639DB /* Main.storyboard */; };
@@ -27,6 +29,7 @@
 		0FDCF03C284D043A007639DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDCF03B284D043A007639DB /* main.m */; };
 		0FE3B491284FA36F00E14D38 /* TTPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3B490284FA36F00E14D38 /* TTPagerViewController.m */; };
 		0FE3B494284FA3AB00E14D38 /* TTPagerContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3B493284FA3AB00E14D38 /* TTPagerContainerView.m */; };
+		0FE9B572285066100005C572 /* TTSliderNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE9B571285066100005C572 /* TTSliderNavView.m */; };
 		5EE7CA05D3F57B87CD97D3A9 /* Pods_NoSceneTemp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4356EE3231694B4606C52B4 /* Pods_NoSceneTemp.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +58,10 @@
 		0F938880284D9764005E49AA /* TTLoginAndRegisterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTLoginAndRegisterView.m; sourceTree = "<group>"; };
 		0F938882284DA181005E49AA /* InputFieldTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputFieldTestViewController.h; sourceTree = "<group>"; };
 		0F938883284DA181005E49AA /* InputFieldTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputFieldTestViewController.m; sourceTree = "<group>"; };
+		0FC4F8E5285036470062C7A3 /* TTSegmentedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSegmentedView.h; sourceTree = "<group>"; };
+		0FC4F8E6285036470062C7A3 /* TTSegmentedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSegmentedView.m; sourceTree = "<group>"; };
+		0FC4F8E828503E660062C7A3 /* TTSegmentedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSegmentedCell.h; sourceTree = "<group>"; };
+		0FC4F8E928503E660062C7A3 /* TTSegmentedCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSegmentedCell.m; sourceTree = "<group>"; };
 		0FDCF026284D0439007639DB /* NoSceneTemp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoSceneTemp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FDCF029284D0439007639DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0FDCF02A284D0439007639DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -69,6 +76,8 @@
 		0FE3B490284FA36F00E14D38 /* TTPagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTPagerViewController.m; sourceTree = "<group>"; };
 		0FE3B492284FA3AB00E14D38 /* TTPagerContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTPagerContainerView.h; sourceTree = "<group>"; };
 		0FE3B493284FA3AB00E14D38 /* TTPagerContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTPagerContainerView.m; sourceTree = "<group>"; };
+		0FE9B570285066100005C572 /* TTSliderNavView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSliderNavView.h; sourceTree = "<group>"; };
+		0FE9B571285066100005C572 /* TTSliderNavView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSliderNavView.m; sourceTree = "<group>"; };
 		966A10369F79DC25CF36ED93 /* Pods-NoSceneTemp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoSceneTemp.debug.xcconfig"; path = "Target Support Files/Pods-NoSceneTemp/Pods-NoSceneTemp.debug.xcconfig"; sourceTree = "<group>"; };
 		B4356EE3231694B4606C52B4 /* Pods_NoSceneTemp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoSceneTemp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE8A3335F4CA6D3B87D7AC1 /* Pods-NoSceneTemp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoSceneTemp.release.xcconfig"; path = "Target Support Files/Pods-NoSceneTemp/Pods-NoSceneTemp.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +126,17 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		0FC4F8E42850357D0062C7A3 /* SegmentedView */ = {
+			isa = PBXGroup;
+			children = (
+				0FC4F8E5285036470062C7A3 /* TTSegmentedView.h */,
+				0FC4F8E6285036470062C7A3 /* TTSegmentedView.m */,
+				0FC4F8E828503E660062C7A3 /* TTSegmentedCell.h */,
+				0FC4F8E928503E660062C7A3 /* TTSegmentedCell.m */,
+			);
+			path = SegmentedView;
+			sourceTree = "<group>";
+		};
 		0FDCF01D284D0439007639DB = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +158,7 @@
 		0FDCF028284D0439007639DB /* NoSceneTemp */ = {
 			isa = PBXGroup;
 			children = (
+				0FC4F8E42850357D0062C7A3 /* SegmentedView */,
 				0FE3B48E284FA35600E14D38 /* PagerView */,
 				0F779B73284D07E500076316 /* Login */,
 				0FDCF029284D0439007639DB /* AppDelegate.h */,
@@ -149,6 +170,8 @@
 				0FDCF037284D043A007639DB /* LaunchScreen.storyboard */,
 				0FDCF03A284D043A007639DB /* Info.plist */,
 				0FDCF03B284D043A007639DB /* main.m */,
+				0FE9B570285066100005C572 /* TTSliderNavView.h */,
+				0FE9B571285066100005C572 /* TTSliderNavView.m */,
 			);
 			path = NoSceneTemp;
 			sourceTree = "<group>";
@@ -302,9 +325,11 @@
 				0F779B76284D07F500076316 /* LoginViewController.m in Sources */,
 				0F938884284DA181005E49AA /* InputFieldTestViewController.m in Sources */,
 				0F3F7A55284E4D3100193679 /* TTLoginViewController.m in Sources */,
+				0FE9B572285066100005C572 /* TTSliderNavView.m in Sources */,
 				0F4BB51E284D26E6006FCC37 /* TTOldLoginView.m in Sources */,
 				0FE3B491284FA36F00E14D38 /* TTPagerViewController.m in Sources */,
 				0FE3B494284FA3AB00E14D38 /* TTPagerContainerView.m in Sources */,
+				0FC4F8EA28503E660062C7A3 /* TTSegmentedCell.m in Sources */,
 				0F93887B284D8850005E49AA /* TTInputField.m in Sources */,
 				0FDCF031284D0439007639DB /* ViewController.m in Sources */,
 				0F93887E284D95E7005E49AA /* UIView+Border.m in Sources */,
@@ -312,6 +337,7 @@
 				0FDCF02B284D0439007639DB /* AppDelegate.m in Sources */,
 				0F4BB521284D27FB006FCC37 /* TTRegisterViewController.m in Sources */,
 				0FDCF03C284D043A007639DB /* main.m in Sources */,
+				0FC4F8E7285036470062C7A3 /* TTSegmentedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
