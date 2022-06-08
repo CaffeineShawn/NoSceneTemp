@@ -144,14 +144,20 @@
         return;
     }
     [self slideAnimationWithTag:sender.tag];
+    _ttSliderNav.isButtonClicked = YES;
     [UIView animateWithDuration:0.3 animations:^{
         self->_container.contentOffset = CGPointMake(UIScreen.mainScreen.bounds.size.width*(sender.tag-1), 0);
+    } completion:^(BOOL finished) {
+        _ttSliderNav.isButtonClicked = NO;
     }];
    
     NSLog(@"%zd", _currentIndex);
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (_ttSliderNav.isButtonClicked) {
+        return;
+    }
     CGFloat currentOffSetX = _container.contentOffset.x;
     CGFloat sliderOffsetX = currentOffSetX / 3.333 ;
     

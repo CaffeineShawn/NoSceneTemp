@@ -79,16 +79,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7795B323-9F05-4E7C-A716-61C339001E03"
+            uuid = "AEDBADC1-B861-469E-BA7E-72F904F15347"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NoSceneTemp/PagerView/TTPagerViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "-slideAnimationWithTag:"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "-scrollViewDidScroll:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

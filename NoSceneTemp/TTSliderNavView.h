@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIButton *buttonC;
 @property (nonatomic, strong) UILabel *sliderLabel;
 @property (nonatomic, assign) BOOL canInteract;
+@property (nonatomic, assign) BOOL isButtonClicked;
 - (UIButton *)buttonWithTag:(NSInteger)tag;
 - (void)setupSubViews;
 @end

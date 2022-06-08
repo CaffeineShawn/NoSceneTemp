@@ -46,7 +46,7 @@
         [_container addSubview:_buttonA];
         [_container addSubview:_buttonB];
         [_container addSubview:_buttonC];
-        [_sliderLabel.layer setCornerRadius:2];
+        [_sliderLabel.layer setCornerRadius:4];
         [self.container addSubview:_sliderLabel];
         _container.showsHorizontalScrollIndicator = NO;
         _container.automaticallyAdjustsScrollIndicatorInsets = NO;
