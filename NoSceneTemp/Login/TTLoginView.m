@@ -9,11 +9,8 @@
 #import "TTInputField.h"
 #import "Masonry.h"
 
-
-
 @implementation TTLoginView
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         [self setupInputFields];
@@ -46,10 +43,10 @@
 }
 
 - (void)setupInputFields {
-    _usernameInputField = [[TTInputField alloc]initWithLabelText:@"账号" placeholder:@"请输入账号"];
+    _usernameInputField = [[TTInputField alloc]initWithLabelText:@"账号" placeholder:@"请输入账号" type:TTInputFieldTypeNormal];
     _usernameInputField.textField.textContentType = UITextContentTypeUsername;
     _usernameInputField.textField.autocorrectionType = UITextAutocorrectionTypeNo;
-    _passwordInputField = [[TTInputField alloc]initPasswordInputFieldWithLabelText:@"密码" placeholder:@"请输入密码"];
+    _passwordInputField = [[TTInputField alloc]initWithLabelText:@"密码" placeholder:@"请输入密码" type:TTInputFieldTypePassword];
     [_passwordInputField.textField  setSecureTextEntry:YES];
 }
 

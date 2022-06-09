@@ -16,92 +16,87 @@
 @end
 @implementation TTInputField
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        _textField = UITextField.new;
-        _label = UILabel.new;
-        _label.textAlignment = NSTextAlignmentCenter;
-        
-        
-        UIStackView *containerStack = [[UIStackView alloc]initWithArrangedSubviews:@[_label, _textField]];
-        _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _textField.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 20, 25)];
-        [_textField.leftView addLeftBorderWithColor:UIColor.blackColor andWidth:0.5];
-        _textField.leftViewMode = UITextFieldViewModeAlways;
-        _textField.rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 20, 25)];
-        _textField.rightViewMode = UITextFieldViewModeUnlessEditing;
-        [_label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_equalTo(70);
-            make.height.mas_equalTo(50);
-        }];
-        containerStack.axis = UILayoutConstraintAxisHorizontal;
-        containerStack.alignment = UIStackViewAlignmentCenter;
-        _containerView = containerStack;
-        _containerView.layer.masksToBounds = YES;
-        [_containerView.layer setCornerRadius:10];
-        [_containerView.layer setBorderWidth:0.5];
-        [_containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        }];
-        [self addSubview:_containerView];
+- (instancetype)initWithLabelText:(NSString *)labelText placeholder:(NSString *)placeholder type:(TTInputFieldType)type {
+    switch (type) {
+        case TTInputFieldTypeNormal:
+            self = [self initTTInputFieldTypeNormal];
+            break;
+            
+        case TTInputFieldTypePassword:
+            self = [self initTTInputFieldTypePassword];
+            break;
     }
-    return self;
-}
-
-- (instancetype)initPasswordInputField {
-    self = [super init];
-    if (self) {
-        _textField = UITextField.new;
-        _label = UILabel.new;
-        _label.textAlignment = NSTextAlignmentCenter;
-        
-        UIStackView *containerStack = [[UIStackView alloc]initWithArrangedSubviews:@[_label, _textField]];
-        _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _textField.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 20, 25)];
-        [_textField.leftView addLeftBorderWithColor:UIColor.blackColor andWidth:0.5];
-        _textField.leftViewMode = UITextFieldViewModeAlways;
-        UIImage *image = [UIImage systemImageNamed:@"eye"];
-        _textField.rightView = [UIButton systemButtonWithImage:image target:self action: @selector(toggleVisibility)];
-        [_textField.rightView sizeToFit];
-        _textField.rightViewMode = UITextFieldViewModeAlways;
-        [_label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_equalTo(70);
-            make.height.mas_equalTo(50);
-        }];
-        containerStack.axis = UILayoutConstraintAxisHorizontal;
-        containerStack.alignment = UIStackViewAlignmentCenter;
-        _containerView = containerStack;
-        _containerView.layer.masksToBounds = YES;
-        [_containerView.layer setCornerRadius:10];
-        [_containerView.layer setBorderWidth:0.5];
-        [_containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        }];
-        [self addSubview:_containerView];
-    }
-    return self;
-}
-
-- (instancetype)initWithLabelText:(NSString *)labelText placeholder:(NSString *)placeholder {
-    self = [self init];
     _label.text = labelText;
     _textField.placeholder = placeholder;
     return self;
 }
 
-- (instancetype)initPasswordInputFieldWithLabelText:(NSString *)labelText placeholder:(NSString *)placeholder {
-    self = [self initPasswordInputField];
-    _label.text = labelText;
-    _textField.placeholder = placeholder;
+- (instancetype)initTTInputFieldTypeNormal {
+    self = [super init];
+    if (self) {
+        _textField = UITextField.new;
+        _label = UILabel.new;
+        _containerView = [[UIStackView alloc]initWithArrangedSubviews:@[_label, _textField]];
+        [self setupTextFieldPaddingLeft];
+        [self setupTextFieldClearButton];
+        [self setupLabel];
+        [self setupContainer];
+    }
     return self;
+}
+
+- (instancetype)initTTInputFieldTypePassword {
+    self = [super init];
+    if (self) {
+        _textField = UITextField.new;
+        _label = UILabel.new;
+        _containerView = [[UIStackView alloc]initWithArrangedSubviews:@[_label, _textField]];
+        [self setupTextFieldPaddingLeft];
+        [self setupTextFieldVisibilityButton];
+        [self setupLabel];
+        [self setupContainer];
+    }
+    return self;
+}
+
+
+
+- (void)setupTextFieldPaddingLeft {
+    _textField.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 20, 25)];
+    [_textField.leftView addLeftBorderWithColor:UIColor.blackColor andWidth:0.5];
+    _textField.leftViewMode = UITextFieldViewModeAlways;
+}
+
+- (void)setupTextFieldVisibilityButton {
+    UIImage *image = [UIImage systemImageNamed:@"eye"];
+    _textField.rightView = [UIButton systemButtonWithImage:image target:self action: @selector(toggleVisibility)];
+    [_textField.rightView sizeToFit];
+    _textField.rightViewMode = UITextFieldViewModeAlways;
+}
+
+- (void)setupTextFieldClearButton {
+    _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _textField.rightView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 20, 25)];
+    _textField.rightViewMode = UITextFieldViewModeUnlessEditing;
+}
+
+- (void)setupLabel {
+    _label.textAlignment = NSTextAlignmentCenter;
+    [_label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(70);
+        make.height.mas_equalTo(50);
+    }];
+}
+
+- (void)setupContainer {
+    _containerView.axis = UILayoutConstraintAxisHorizontal;
+    _containerView.alignment = UIStackViewAlignmentCenter;
+    _containerView.layer.masksToBounds = YES;
+    [_containerView.layer setCornerRadius:10];
+    [_containerView.layer setBorderWidth:0.5];
+    [_containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+    }];
+    [self addSubview:_containerView];
 }
 
 - (void)layoutSubviews {

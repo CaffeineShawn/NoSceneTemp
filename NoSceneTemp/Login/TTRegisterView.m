@@ -8,9 +8,7 @@
 #import "TTRegisterView.h"
 #import "TTInputField.h"
 #import "Masonry.h"
-//NSInteger const kRegisterViewUsernameField = 1001;
-//NSInteger const kRegisterViewEmailField = 1002;
-//NSInteger const kRegisterViewPasswordField = 1003;
+
 @interface TTRegisterView () <UITextFieldDelegate>
 @property (nonatomic, strong) UILabel *titleLabel;
 @end
@@ -18,11 +16,7 @@
 
 @implementation TTRegisterView
 
-- (instancetype)init
-{
-    self.titleLabel = UILabel.new;
-    _titleLabel.text = @"注册";
-    [_titleLabel setFont:[UIFont systemFontOfSize:24 weight:UIFontWeightBold]];
+- (instancetype)init {
     self = [super init];
     if (self) {
         [self setupInputFields];
@@ -47,14 +41,14 @@
 }
 
 - (void)setupInputFields {
-    _usernameInputField = [[TTInputField alloc]initWithLabelText:@"账号" placeholder:@"请输入账号"];
+    _usernameInputField = [[TTInputField alloc]initWithLabelText:@"账号" placeholder:@"请输入账号" type:TTInputFieldTypeNormal];
     _usernameInputField.textField.textContentType = UITextContentTypeUsername;
     _usernameInputField.textField.autocorrectionType = UITextAutocorrectionTypeNo;
-    _emailInputField = [[TTInputField alloc]initWithLabelText:@"邮箱" placeholder:@"请输入邮箱"];
+    _emailInputField = [[TTInputField alloc]initWithLabelText:@"邮箱" placeholder:@"请输入邮箱" type:TTInputFieldTypeNormal];
     _emailInputField.textField.keyboardType = UIKeyboardTypeEmailAddress;
     _emailInputField.textField.autocorrectionType = UITextAutocorrectionTypeNo;
     _emailInputField.textField.textContentType = UITextContentTypeEmailAddress;
-    _passwordInputField = [[TTInputField alloc]initPasswordInputFieldWithLabelText:@"密码" placeholder:@"请输入密码"];
+    _passwordInputField = [[TTInputField alloc]initWithLabelText:@"密码" placeholder:@"请输入密码"  type:TTInputFieldTypePassword];
     [_passwordInputField.textField  setSecureTextEntry:YES];
 }
 
