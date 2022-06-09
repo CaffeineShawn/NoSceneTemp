@@ -20,7 +20,7 @@
     UITabBarController *tabVC = UITabBarController.new;
     _window = UIWindow.new;
     _window.rootViewController = tabVC;
-    UIViewController *firstVC = TTPagerViewController.new;
+    UIViewController *firstVC = [[TTPagerViewController alloc] initWithChildrenVCArray:@[UIViewController.new, UIViewController.new, UIViewController.new] titles:@[@"第一页", @"第二页", @"第三页"]];
     UINavigationController *secondVC = UINavigationController.new;
     tabVC.viewControllers = @[firstVC, secondVC];
     firstVC.tabBarItem.title = @"Videos";

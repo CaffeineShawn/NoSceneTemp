@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger currentIndex; /// 记录当前页面位置
 @property (nonatomic, strong) UISearchBar *searchBar; /// self.view下搜索框
 @property (nonatomic, strong) TTSliderNavView *ttSliderNav; /// self.view下滑动指示器
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithChildrenArray:(NSArray <UITableView *> *)childrenArray titles:(NSArray <NSString *> *)titles;
+- (instancetype)initWithChildrenVCArray:(NSArray <UIViewController *> *)childrenVCArray titles:(NSArray <NSString *> *)titles;
 @end
 
 NS_ASSUME_NONNULL_END

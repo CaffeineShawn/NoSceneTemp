@@ -11,27 +11,35 @@
 NSInteger const kTagToIndex = 1000;
 @interface TTPagerViewController () <UIScrollViewDelegate>
 @property (nonatomic, strong) NSArray <UITableView *> *childrenArray;
+
+@property (nonatomic, strong) NSArray <UIViewController *> *childrenVCArray;
 - (void)populateWithChildren:(NSArray <UITableView *> *)children;
 @end
 
 @implementation TTPagerViewController
 
-- (instancetype)init
-{
+- (instancetype)initWithChildrenArray:(NSArray <UITableView *> *)childrenArray titles:(NSArray <NSString *> *)titles {
     self = [super init];
     if (self) {
         _searchBar = UISearchBar.new;
-        UITableView *tableView1 = UITableView.new;
-        tableView1.backgroundColor = UIColor.grayColor;
-        UITableView *tableView2 = UITableView.new;
-        tableView2.backgroundColor = UIColor.blackColor;
-        UITableView *tableView3 = UITableView.new;
-        tableView3.backgroundColor = UIColor.darkGrayColor;
-        UITableView *tableView4 = UITableView.new;
-        tableView4.backgroundColor = UIColor.blackColor;
-        _childrenArray = @[tableView1, tableView2, tableView3, tableView4];
+        _childrenArray = childrenArray;
         // 初始化按钮
-        _ttSliderNav = [[TTSliderNavView alloc]initWithButtonTitles:@[@"AAA", @"BBB", @"CCC", @"DDD"]];
+        _ttSliderNav = [[TTSliderNavView alloc]initWithButtonTitles:titles];
+    }
+    return self;
+}
+
+- (instancetype)initWithChildrenVCArray:(NSArray <UIViewController *> *)childrenVCArray titles:(NSArray <NSString *> *)titles {
+    self = [super init];
+    if (self) {
+        _searchBar = UISearchBar.new;
+        NSMutableArray <UITableView *> *childrenArray = [NSMutableArray array];
+        for (UIViewController *vc in childrenVCArray) {
+            [childrenArray addObject:vc.view];
+        }
+        _childrenArray = childrenArray;
+        // 初始化按钮
+        _ttSliderNav = [[TTSliderNavView alloc]initWithButtonTitles:titles];
     }
     return self;
 }
