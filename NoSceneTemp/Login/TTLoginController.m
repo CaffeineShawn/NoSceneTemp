@@ -5,10 +5,10 @@
 //  Created by 肖扬 on 2022/6/6.
 //
 
-#import "TTRegisterViewController.h"
+#import "TTRegisterController.h"
 #import "TTLoginView.h"
 #import "TTInputField.h"
-#import "TTLoginViewController.h"
+#import "TTLoginController.h"
 
 #import "Masonry.h"
 
@@ -20,12 +20,12 @@ NSString * const kLoginViewUsernameRegex = @"[A-Za-z0-9]+";
 NSString * const kLoginViewEmailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
 NSString * const kLoginViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}";
 
-@interface TTLoginViewController () <UITextFieldDelegate>
+@interface TTLoginController () <UITextFieldDelegate>
 @property (nonatomic, strong) TTLoginView *loginView;
 //@property (nonatomic, strong) TTRegisterView *registerView;
 @end
 
-@implementation TTLoginViewController
+@implementation TTLoginController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -130,7 +130,7 @@ NSString * const kLoginViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)navToRegisterView {
     UINavigationController *navVC = self.navigationController;
-    TTRegisterViewController *regVC = TTRegisterViewController.new;
+    TTRegisterController *regVC = TTRegisterController.new;
     [navVC pushViewController:regVC animated:YES];
 }
 

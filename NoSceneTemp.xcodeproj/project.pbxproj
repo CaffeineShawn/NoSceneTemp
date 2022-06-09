@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		0F3F7A4F284E4B1800193679 /* TTRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F7A4E284E4B1800193679 /* TTRegisterView.m */; };
 		0F3F7A52284E4D2300193679 /* TTLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F7A51284E4D2300193679 /* TTLoginView.m */; };
-		0F3F7A55284E4D3100193679 /* TTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F7A54284E4D3100193679 /* TTLoginViewController.m */; };
-		0F4BB521284D27FB006FCC37 /* TTRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4BB520284D27FB006FCC37 /* TTRegisterViewController.m */; };
+		0F3F7A55284E4D3100193679 /* TTLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F7A54284E4D3100193679 /* TTLoginController.m */; };
+		0F4BB521284D27FB006FCC37 /* TTRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4BB520284D27FB006FCC37 /* TTRegisterController.m */; };
 		0F93887B284D8850005E49AA /* TTInputField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93887A284D8850005E49AA /* TTInputField.m */; };
 		0F93887E284D95E7005E49AA /* UIView+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F93887D284D95E7005E49AA /* UIView+Border.m */; };
 		0FDCF02B284D0439007639DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDCF02A284D0439007639DB /* AppDelegate.m */; };
@@ -29,10 +29,10 @@
 		0F3F7A4E284E4B1800193679 /* TTRegisterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTRegisterView.m; sourceTree = "<group>"; };
 		0F3F7A50284E4D2300193679 /* TTLoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTLoginView.h; sourceTree = "<group>"; };
 		0F3F7A51284E4D2300193679 /* TTLoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTLoginView.m; sourceTree = "<group>"; };
-		0F3F7A53284E4D3100193679 /* TTLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTLoginViewController.h; sourceTree = "<group>"; };
-		0F3F7A54284E4D3100193679 /* TTLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTLoginViewController.m; sourceTree = "<group>"; };
-		0F4BB51F284D27FB006FCC37 /* TTRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTRegisterViewController.h; sourceTree = "<group>"; };
-		0F4BB520284D27FB006FCC37 /* TTRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTRegisterViewController.m; sourceTree = "<group>"; };
+		0F3F7A53284E4D3100193679 /* TTLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTLoginController.h; sourceTree = "<group>"; };
+		0F3F7A54284E4D3100193679 /* TTLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTLoginController.m; sourceTree = "<group>"; };
+		0F4BB51F284D27FB006FCC37 /* TTRegisterController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTRegisterController.h; sourceTree = "<group>"; };
+		0F4BB520284D27FB006FCC37 /* TTRegisterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTRegisterController.m; sourceTree = "<group>"; };
 		0F938879284D8850005E49AA /* TTInputField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTInputField.h; sourceTree = "<group>"; };
 		0F93887A284D8850005E49AA /* TTInputField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTInputField.m; sourceTree = "<group>"; };
 		0F93887C284D95E7005E49AA /* UIView+Border.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Border.h"; sourceTree = "<group>"; };
@@ -71,8 +71,8 @@
 		0F779B73284D07E500076316 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				0F4BB51F284D27FB006FCC37 /* TTRegisterViewController.h */,
-				0F4BB520284D27FB006FCC37 /* TTRegisterViewController.m */,
+				0F4BB51F284D27FB006FCC37 /* TTRegisterController.h */,
+				0F4BB520284D27FB006FCC37 /* TTRegisterController.m */,
 				0F938879284D8850005E49AA /* TTInputField.h */,
 				0F93887A284D8850005E49AA /* TTInputField.m */,
 				0F93887C284D95E7005E49AA /* UIView+Border.h */,
@@ -81,8 +81,8 @@
 				0F3F7A4E284E4B1800193679 /* TTRegisterView.m */,
 				0F3F7A50284E4D2300193679 /* TTLoginView.h */,
 				0F3F7A51284E4D2300193679 /* TTLoginView.m */,
-				0F3F7A53284E4D3100193679 /* TTLoginViewController.h */,
-				0F3F7A54284E4D3100193679 /* TTLoginViewController.m */,
+				0F3F7A53284E4D3100193679 /* TTLoginController.h */,
+				0F3F7A54284E4D3100193679 /* TTLoginController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -266,7 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F3F7A4F284E4B1800193679 /* TTRegisterView.m in Sources */,
-				0F3F7A55284E4D3100193679 /* TTLoginViewController.m in Sources */,
+				0F3F7A55284E4D3100193679 /* TTLoginController.m in Sources */,
 				0FE9B572285066100005C572 /* TTSliderNavView.m in Sources */,
 				0FE3B491284FA36F00E14D38 /* TTPagerViewController.m in Sources */,
 				0F93887B284D8850005E49AA /* TTInputField.m in Sources */,
@@ -274,7 +274,7 @@
 				0F93887E284D95E7005E49AA /* UIView+Border.m in Sources */,
 				0F3F7A52284E4D2300193679 /* TTLoginView.m in Sources */,
 				0FDCF02B284D0439007639DB /* AppDelegate.m in Sources */,
-				0F4BB521284D27FB006FCC37 /* TTRegisterViewController.m in Sources */,
+				0F4BB521284D27FB006FCC37 /* TTRegisterController.m in Sources */,
 				0FDCF03C284D043A007639DB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,7 +5,7 @@
 //  Created by 肖扬 on 2022/6/6.
 //
 
-#import "TTRegisterViewController.h"
+#import "TTRegisterController.h"
 #import "TTInputField.h"
 #import "TTRegisterView.h"
 
@@ -19,11 +19,11 @@ NSString * const kRegisterViewUsernameRegex = @"[A-Za-z0-9]+";
 NSString * const kRegisterViewEmailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
 NSString * const kRegisterViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}";
 
-@interface TTRegisterViewController () <UITextFieldDelegate>
+@interface TTRegisterController () <UITextFieldDelegate>
 @property (nonatomic, strong) TTRegisterView *registerView;
 @end
 
-@implementation TTRegisterViewController
+@implementation TTRegisterController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

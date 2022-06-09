@@ -6,8 +6,8 @@
 //
 
 #import "AppDelegate.h"
-#import "Login/TTRegisterViewController.h"
-#import "Login/TTLoginViewController.h"
+#import "Login/TTRegisterController.h"
+#import "Login/TTLoginController.h"
 #import "PagerView/TTPagerViewController.h"
 @interface AppDelegate ()
 @end
@@ -29,9 +29,8 @@
     secondVC.tabBarItem.title = @"User";
     secondVC.tabBarItem.image = [UIImage systemImageNamed:@"person.circle"];
     secondVC.navigationBarHidden = YES;
-    secondVC.viewControllers = @[TTLoginViewController.new];
+    secondVC.viewControllers = @[TTLoginController.new];
     [_window makeKeyAndVisible];
-//    tabVC.selectedIndex = 1;
     return YES;
 }
 

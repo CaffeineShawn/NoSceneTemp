@@ -11,6 +11,7 @@
 NSInteger const kTagToIndex = 1000;
 @interface TTPagerViewController () <UIScrollViewDelegate>
 @property (nonatomic, strong) NSArray <UITableView *> *childrenArray;
+- (void)populateWithChildren:(NSArray <UITableView *> *)children;
 @end
 
 @implementation TTPagerViewController
