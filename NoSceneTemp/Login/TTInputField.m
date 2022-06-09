@@ -71,7 +71,6 @@
         _textField.leftViewMode = UITextFieldViewModeAlways;
         UIImage *image = [UIImage systemImageNamed:@"eye"];
         _textField.rightView = [UIButton systemButtonWithImage:image target:self action: @selector(toggleVisibility)];
-//        _textField.rightView.frame = CGRectMake(0, 0, 20, 25);
         [_textField.rightView sizeToFit];
         _textField.rightViewMode = UITextFieldViewModeAlways;
         [_label mas_makeConstraints:^(MASConstraintMaker *make) {

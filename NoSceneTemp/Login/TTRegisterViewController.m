@@ -54,7 +54,7 @@ NSString * const kRegisterViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]
     
 }
 
-#pragma mark - TextField Delegate
+#pragma mark - UITextField委托方法
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     switch (textField.tag) {
         case kRegisterViewUsernameFieldTag:
@@ -118,7 +118,6 @@ NSString * const kRegisterViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]
     if (isValid) {
         return YES;
     } else {
-//        [self resignAllFieldResponders];
         NSString *errorMessage;
         if (isUsernameEmpty) {
             errorMessage = @"输入的账号不能为空";
@@ -134,7 +133,6 @@ NSString * const kRegisterViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]
             errorMessage = @"输入的密码应该包含大小写和数字, 且长度在8到30个字符以内";
         }
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"输入错误" message:errorMessage preferredStyle:UIAlertControllerStyleAlert];
-//        __weak typeof(self) weakSelf = self;
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:action];
         [self presentViewController:alertController animated:YES completion:nil];
