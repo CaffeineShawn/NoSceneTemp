@@ -6,8 +6,6 @@
 //
 
 #import "TTRegisterViewController.h"
-#import "TTLoginAndRegisterView.h"
-#import "TTOldInputField.h"
 #import "TTInputField.h"
 #import "TTRegisterView.h"
 
@@ -22,7 +20,6 @@ NSString * const kRegisterViewEmailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.
 NSString * const kRegisterViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}";
 
 @interface TTRegisterViewController () <UITextFieldDelegate>
-@property (nonatomic, strong) TTLoginAndRegisterView *loginView;
 @property (nonatomic, strong) TTRegisterView *registerView;
 @end
 
@@ -42,7 +39,7 @@ NSString * const kRegisterViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]
 
     [_registerView.registerButton addTarget:self action:@selector(isInputLegal) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController setNavigationBarHidden:false];
-    self.navigationItem.title = @"Register";
+    self.navigationItem.title = @"注册";
 }
 - (void)viewWillLayoutSubviews {
 

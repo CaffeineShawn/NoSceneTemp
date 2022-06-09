@@ -6,8 +6,6 @@
 //
 
 #import "AppDelegate.h"
-#import "Login/LoginViewController.h"
-//#import "Login/InputFieldTestViewController.h"
 #import "Login/TTRegisterViewController.h"
 #import "Login/TTLoginViewController.h"
 #import "PagerView/TTPagerViewController.h"

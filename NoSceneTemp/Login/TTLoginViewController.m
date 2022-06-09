@@ -7,7 +7,6 @@
 
 #import "TTRegisterViewController.h"
 #import "TTLoginView.h"
-#import "TTOldInputField.h"
 #import "TTInputField.h"
 #import "TTLoginViewController.h"
 
@@ -37,10 +36,10 @@ NSString * const kLoginViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{
     _loginView.passwordInputField.textField.delegate = self;
     _loginView.usernameInputField.tag = kLoginViewUsernameFieldTag;
     _loginView.passwordInputField.tag = kLoginViewPasswordFieldTag;
-[_loginView.loginButton addTarget:self action:@selector(isInputLegal) forControlEvents:UIControlEventTouchUpInside];
+    [_loginView.loginButton addTarget:self action:@selector(isInputLegal) forControlEvents:UIControlEventTouchUpInside];
     [_loginView.registerButton addTarget:self action:@selector(navToRegisterView) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.title = @"Login";
-    [self.navigationController setNavigationBarHidden:YES];
+    self.navigationItem.title = @"登录";
+    [self.navigationController setNavigationBarHidden:NO];
 }
 - (void)viewWillLayoutSubviews {
 
@@ -62,7 +61,6 @@ NSString * const kLoginViewPasswordRegex = @"(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{
                 [_loginView.passwordInputField becomeFirstResponder];
             }
             break;
-            
             
         case kLoginViewPasswordFieldTag:
             [textField resignFirstResponder];
