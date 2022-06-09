@@ -7,10 +7,12 @@
 
 #import "TTPagerViewController.h"
 #import "TTPagerContainerView.h"
-#import "../TTSliderNavView.h"
+#import "TTSliderNavView.h"
 #import "Masonry.h"
+NSInteger const kTagToIndex = 1000;
 @interface TTPagerViewController () <UIScrollViewDelegate>
 @property (nonatomic, strong) NSArray <UITableView *> *childrenArray;
+
 @end
 
 @implementation TTPagerViewController
@@ -26,11 +28,15 @@
         tableView2.backgroundColor = UIColor.blackColor;
         UITableView *tableView3 = UITableView.new;
         tableView3.backgroundColor = UIColor.darkGrayColor;
-        _childrenArray = @[tableView1, tableView2, tableView3];
-        _ttSliderNav = TTSliderNavView.new;
+        UITableView *tableView4 = UITableView.new;
+        tableView4.backgroundColor = UIColor.blackColor;
+        _childrenArray = @[tableView1, tableView2, tableView3, tableView4];
+        _ttSliderNav = [[TTSliderNavView alloc]initWithButtonTitles:@[@"AAA", @"BBB", @"CCC", @"DDD"]];
     }
     return self;
 }
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,10 +63,10 @@
         make.centerX.mas_equalTo(_searchBar);
         make.height.mas_equalTo(_searchBar);
     }];
-    [_ttSliderNav.buttonA setSelected:YES];
-    [_ttSliderNav.buttonA addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventTouchUpInside];
-    [_ttSliderNav.buttonB addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventTouchUpInside];
-    [_ttSliderNav.buttonC addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_ttSliderNav.buttonArray.firstObject setSelected:YES];
+    [_ttSliderNav.buttonArray enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventTouchUpInside];
+    }];
     [_ttSliderNav setupSubViews];
 }
 
@@ -68,7 +74,6 @@
 
     __block BOOL containsNilObj = NO;
     [children enumerateObjectsUsingBlock:^(UITableView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-
         if (obj == nil) {
             containsNilObj = YES;
             return;
@@ -94,14 +99,13 @@
     CGFloat sliderWidth = _ttSliderNav.sliderLabel.frame.size.width;
     UILabel *sliderLabel = self->_ttSliderNav.sliderLabel;
     
-    
     UIView *sliderContainer = (UIView *)_ttSliderNav.container;
     _ttSliderNav.canInteract = false;
     [UIView animateWithDuration:0.3 animations:^{
         [sliderLabel mas_updateConstraints:^(MASConstraintMaker *make) {
             make.left
                 .mas_equalTo(sliderContainer.mas_left)
-                .offset((widthMetric - sliderWidth)/2 + (tag-1) * widthMetric);
+                .offset((widthMetric - sliderWidth)/2 + ([self indexFromTag:tag]) * widthMetric);
         }];
         
         [self->_ttSliderNav layoutIfNeeded];
@@ -111,48 +115,29 @@
     [[_ttSliderNav buttonWithTag:tag]setSelected:YES];
 }
 
-- (void)slideAnimationWithTag:(NSInteger)tag {
-    if (!_ttSliderNav.canInteract) {
-        return;
-    }
-    self.currentIndex = tag-1;
-    [_ttSliderNav.buttonA setSelected:NO];
-    [_ttSliderNav.buttonB setSelected:NO];
-    [_ttSliderNav.buttonC setSelected:NO];
-    [self animateWithTag:tag];
-    NSLog(@"button action: %zd", _currentIndex);
-    
-}
-
-//- (void)slideWithTag:(NSInteger)tag {
-//    self.currentIndex = tag-1;
-//    [_ttSliderNav.buttonA setSelected:NO];
-//    [_ttSliderNav.buttonB setSelected:NO];
-//    [_ttSliderNav.buttonC setSelected:NO];
-//    UIButton *sender = [_ttSliderNav buttonWithTag:tag];
-//    sender.selected = YES;
-//    [self->_ttSliderNav.sliderLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-//        CGFloat widthMetric = self->_ttSliderNav.bounds.size.width / 3;
-//        CGFloat sliderWidth = _ttSliderNav.sliderLabel.frame.size.width;
-//        make.left.mas_equalTo(self->_ttSliderNav.container.mas_left).offset((widthMetric - sliderWidth)/2 + (tag-1) * widthMetric);
-//    }];
-//
-//}
-
 - (void)sliderAction:(UIButton *)sender {
-    if (self.currentIndex == sender.tag-1) {
+    NSInteger nextIndex = [self indexFromTag:sender.tag];
+    if (_currentIndex == nextIndex || !_ttSliderNav.canInteract) {
         return;
     }
     [self slideAnimationWithTag:sender.tag];
+    _currentIndex = nextIndex;
     _ttSliderNav.isButtonClicked = YES;
     [UIView animateWithDuration:0.3 animations:^{
-        self->_container.contentOffset = CGPointMake(UIScreen.mainScreen.bounds.size.width*(sender.tag-1), 0);
+        self->_container.contentOffset = CGPointMake(UIScreen.mainScreen.bounds.size.width*(nextIndex), 0);
     } completion:^(BOOL finished) {
-        _ttSliderNav.isButtonClicked = NO;
+        self->_ttSliderNav.isButtonClicked = NO;
     }];
-   
-    NSLog(@"%zd", _currentIndex);
 }
+
+- (void)slideAnimationWithTag:(NSInteger)tag {
+    [_ttSliderNav.buttonArray enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj setSelected:NO];
+    }];
+    [self animateWithTag:tag];
+    NSLog(@"scroll end: %zd", _currentIndex);
+}
+
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (_ttSliderNav.isButtonClicked) {
@@ -170,24 +155,24 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSInteger previousTag = _currentIndex+1;
+    NSInteger previousTag = [self tagFromIndex:_currentIndex];
     [[_ttSliderNav buttonWithTag:previousTag]setSelected:NO];
-    NSInteger tag = scrollView.contentOffset.x / UIScreen.mainScreen.bounds.size.width + 1;
+    NSInteger tag = [self tagFromIndex:scrollView.contentOffset.x / UIScreen.mainScreen.bounds.size.width];
     
     [self animateWithTag:tag];
-    self.currentIndex = tag-1;
-    NSLog(@"%zd", _currentIndex);
+    NSInteger nextIndex = [self indexFromTag:tag];
+    NSLog(@"scroll start: %zd", _currentIndex);
+    _currentIndex = nextIndex;
     [self slideAnimationWithTag:tag];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - tag index conversion
+- (NSInteger)indexFromTag:(NSInteger)tag {
+    return tag - kTagToIndex;
 }
-*/
+
+- (NSInteger)tagFromIndex:(NSInteger)index {
+    return index + kTagToIndex;
+}
 
 @end

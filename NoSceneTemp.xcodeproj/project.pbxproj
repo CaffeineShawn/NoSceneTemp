@@ -170,8 +170,6 @@
 				0FDCF037284D043A007639DB /* LaunchScreen.storyboard */,
 				0FDCF03A284D043A007639DB /* Info.plist */,
 				0FDCF03B284D043A007639DB /* main.m */,
-				0FE9B570285066100005C572 /* TTSliderNavView.h */,
-				0FE9B571285066100005C572 /* TTSliderNavView.m */,
 			);
 			path = NoSceneTemp;
 			sourceTree = "<group>";
@@ -179,6 +177,8 @@
 		0FE3B48E284FA35600E14D38 /* PagerView */ = {
 			isa = PBXGroup;
 			children = (
+				0FE9B571285066100005C572 /* TTSliderNavView.m */,
+				0FE9B570285066100005C572 /* TTSliderNavView.h */,
 				0FE3B48F284FA36F00E14D38 /* TTPagerViewController.h */,
 				0FE3B490284FA36F00E14D38 /* TTPagerViewController.m */,
 				0FE3B492284FA3AB00E14D38 /* TTPagerContainerView.h */,
